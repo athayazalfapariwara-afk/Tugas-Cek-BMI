@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cek Indeks BMI</title>
+</head>
+<body>
+    <h1>Cek Indeks BMI</h1>
+    <label for="berat">Berat Badan (kg): </label>
+    <input type="number" id="berat" name="berat">
+    <br><br>
+    <label for="tinggi">Tinggi Badan (cm): </label>
+    <input type="number" id="tinggi" name="tinggi">
+    <br><br>
+    <button onclick="cekBMI()">Cek BMI</button>
+    <p id="hasil"></p>
+    <p id="bmi"></p>
+
+    <script>
+        function cekBMI() {
+            let berat = document.getElementById("berat").value;
+            let tinggi = document.getElementById("tinggi").value / 100;
+            let hasil = document.getElementById("hasil");
+     
+
+            let bmi = berat / (tinggi * tinggi);
+            
+
+            if (bmi < 18.5) {
+                hasil.textContent = "Kurang Berat Badan";
+            } else if (bmi >= 18.5 && bmi < 25) {
+                hasil.textContent = "Normal";
+            } else if (bmi >= 25 && bmi < 30) {
+                hasil.textContent = "Kelebihan Berat Badan";
+            } else {
+                hasil.textContent = "Obesitas";
+            }
+
+            document.getElementById("bmi").textContent = "Indeks BMI Anda: " + bmi.toFixed(2);
+        }
+    </script>
+</body>
+</html>
